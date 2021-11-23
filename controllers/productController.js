@@ -1,20 +1,17 @@
-//Get all the products in the catalog
 const getCatalogue = (request, response) => {
     const catalogServices = require('../services/productServices');
     catalogServices.searchService(function(err, rows) {
-        //Send the returned data to the ejs file
-        response.render('catalogue', { products: rows });
+        response.json(rows);
+        response.end();
     });
 };
 
-//Get the product by it's ID
 const getProductByID = (request, response) => {
     const catalogServices = require('../services/productServices');
-    let reference = request.params.id;
+    let reference = request.params.reference;
     catalogServices.searchIDService(reference, function(err, rows) {
-        //Send the returned data to the ejs file
-        response.render('article', { product: rows });
-
+        response.json(rows);
+        response.end();
     });
 };
 

@@ -1,19 +1,16 @@
 const mysql = require('mysql');
 const databasename = "sql6440943";
 
-//Variable used to connect to the SQL server
 var pool = mysql.createPool({
     connectionLimit: 100,
     host: "sql6.freemysqlhosting.net",
-    user: "sql6452232",
-    password: "UhaAv69NBi",
-    database: "sql6452232",
+    user: "sql6440943",
+    password: "",
+    database: "sql6440943",
     debug: true
 });
 
-//Query execution
 function executeQuery(query, callback) {
-    //Establishing database connection
     pool.getConnection(function(err, connection) {
         if (err) {
             return callback(err, null);
@@ -31,7 +28,6 @@ function executeQuery(query, callback) {
     });
 }
 
-//Get the results from the query
 function getResult(query, callback) {
     executeQuery(query, function(err, rows) {
         if (!err) {

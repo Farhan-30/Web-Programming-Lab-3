@@ -1,39 +1,37 @@
 <%- include('header'); -%>
-
-    <div class='content'>
-        <form action="/api/register" method="post">
-            <label for="username">Username:</label>
-            <br>
-            <input type="text" name="username" placeholder="Username" required autofocus><br>
-            <label for="password">Password:</label>
-            <br>
-            <input type="password" name="passwsord" placeholder="Password" required><br>
-            <label for="society">Society:</label>
-            <br>
-            <input type="text" name="society" placeholder="Society" required><br>
-            <label for="contact">Contact:</label>
-            <br>
-            <input type="text" name="contact" placeholder="Contact" required><br>
-            <label for="address">Address:</label>
-            <br>
-            <input type="text" name="address" placeholder="Address" required><br>
-            <label for="zipcode">Zipcode:</label>
-            <br>
-            <input type="text" name="zipcode" placeholder="Zipcode" required><br>
-            <label for="city">City:</label>
-            <br>
-            <input type="text" name="city" placeholder="City" required><br>
-            <label for="phone">Phone:</label>
-            <br>
-            <input type="text" name="phone" placeholder="Phone Number" required><br>
-            <label for="fax">Fax number:</label>
-            <br>
-            <input type="text" name="fax" placeholder="Fax number" required><br>
-            <label for="max_outstanding">Maximum Outstanding:</label>
-            <br>
-            <input type="text" name="max_outstanding" placeholder="Maximum Outstanding" required><br>
-            <button type="submit">Register</button><br>
-        </form>
-    </div>
-
-    <%- include('footer'); -%>
+    <form method="post" action="/api/register">
+        <label>Society</label> <br>
+        <input type="text" name="Society" placeholder="Enter your society name:"> <br>
+        <br>
+        <label>Contact</label> <br>
+        <input type="text" name="Contact" placeholder="Enter your contact name:"> <br>
+        <br>
+        <label>Adress</label> <br>
+        <input type="text" name="Adress" placeholder="Enter your adress:"> <br>
+        <br>
+        <label>Zip Code</label> <br>
+        <input type="text" name="Zip Code" placeholder="Enter your zip code:"> <br>
+        <br>
+        <label>City</label> <br>
+        <input type="text" name="City" placeholder="Enter your city name:"> <br>
+        <br>
+        <label>Phone</label> <br>
+        <input type="text" name="Phone" placeholder="Enter your phone number:"> <br>
+        <br>
+        <label>Fax</label> <br>
+        <input type="text" name="Fax" placeholder="Enter your fax number:"> <br>
+        <br>
+        <label>Confirmation</label> <br>
+        <input type="number" name="Confirmation" placeholder="Enter your Confirmation number:"> <br>
+        <br>
+        <label>Payment</label> <br>
+        <input type="text" name="Payment" placeholder="Enter your Payment details:"> <br>
+        <br>
+        <label>Information</label> <br>
+        <input type="text" name="Information" placeholder="Enter your Information details:"> <br>
+        <br>
+        <label>Max Outstanding</label> <br>
+        <input type="number" name="Max Outstanding" placeholder="Enter your Max Outstanding fee:"> <br>
+        <br>
+    </form>
+<%- include ('footer'); -&>

@@ -20,17 +20,6 @@ function findByUsername(username, callback) {
     });
 }
 
-function findByNumclient(clientNumber, callback) {
-    const selectClient = (`SELECT * from account where num_client like '${clientNumber}';`);
-    database.getResult(selectClient, function(err, rows) {
-        if (!err) {
-            callback(null, rows);
-        } else {
-            console.log(err);
-        }
-    });
-}
-
 function cryptPassword(pass, callback) {
     //set the complexity of the salt generation
     const saltRounds = 10;
@@ -70,7 +59,7 @@ function createAccount(num_client, username, password, callback) {
 
 function createClient(client, callback) {
     //insert client
-    const insertClient = (`INSERT INTO client(society, contact, addres, zipcode, city, phone, fax, max_outstanding) VALUES('${client.society}', '${client.contact}', '${client.address}', '${client.zipcode}', '${client.city}', '${client.phone}', '${client.fax}', ${client.max_outstanding});`);
+    const insertClient = (`INSERT INTO client(society, contact, addres, zipcode, city, phone, fax, max_outstanding) VALUES('${client.society}', '${client.contact}', '${client.addres}', '${client.zipcode}', '${client.city}', '${client.phone}', '${client.fax}', ${client.max_outstanding});`);
     database.getResult(insertClient, function(err1, result1) {
         if (!err1) {
             //if no error insert their account
@@ -81,22 +70,12 @@ function createClient(client, callback) {
         }
     });
 }
-
-function findClientByNumber(clientNumber, callback) {
-    const selectClient = (`SELECT * from client where num_client like '${clientNumber}';`);
-    database.getResult(selectClient, function(err, rows) {
-        if (!err) {
-            callback(null, rows);
-        } else {
-            console.log(err);
-        }
-    });
-}
-
 module.exports = {
     find,
     findByUsername,
-    createClient,
+    findBySociety,
     findByNumclient,
-    findClientByNumber,
+    createClient,
+    deleteClient,
+    createInitialAccounts
 };
