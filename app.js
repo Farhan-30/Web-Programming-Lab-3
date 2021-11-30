@@ -22,10 +22,18 @@ app.get('/', (req, res) => {
  res.render('index'); //no need for ejs extension
 });
 
+
+//pass requests to the router middleware
+const router = require('./routes/apis');
+app.use(router);
+
+
+
+
 //route for contacts
 app.get('/contacts', (req, res) => {
     res.render('contacts');
-   });
+});
 
 app.get("/login", (req, res) => {
     res.render('login');
